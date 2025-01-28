@@ -29,5 +29,7 @@ struct Main: View {
          email: .constant("takudotoji@mail.com"),
          monthly_budget: .constant(1000),
          monthly_expense: .constant(300),
-         monthly_savingsTarget: .constant(250))
+         monthly_savingsTarget: .constant(250),
+         expense_logs: .constant([]),
+         savings_logs: .constant([]))
 }
