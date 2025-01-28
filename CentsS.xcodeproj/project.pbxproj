@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6746DDE42D48C8CD000B2EEB /* SwiftPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 6746DDE32D48C8CD000B2EEB /* SwiftPersistence */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6797A3FE2D47BE8200BAA900 /* CentsS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentsS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6746DDE42D48C8CD000B2EEB /* SwiftPersistence in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = CentsS;
 			packageProductDependencies = (
+				6746DDE32D48C8CD000B2EEB /* SwiftPersistence */,
 			);
 			productName = CentsS;
 			productReference = 6797A3FE2D47BE8200BAA900 /* CentsS.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 6797A3F52D47BE8100BAA900;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6746DDE22D48C8CD000B2EEB /* XCRemoteSwiftPackageReference "SwiftPersistence" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6797A3FF2D47BE8200BAA900 /* Products */;
 			projectDirPath = "";
@@ -324,6 +333,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6746DDE22D48C8CD000B2EEB /* XCRemoteSwiftPackageReference "SwiftPersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cheesetan/SwiftPersistence";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6746DDE32D48C8CD000B2EEB /* SwiftPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6746DDE22D48C8CD000B2EEB /* XCRemoteSwiftPackageReference "SwiftPersistence" */;
+			productName = SwiftPersistence;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6797A3F62D47BE8100BAA900 /* Project object */;
 }
