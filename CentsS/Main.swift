@@ -44,7 +44,7 @@ struct Main: View {
         NavigationStack {
             VStack {
                 Button {
-                    
+                    sheetProfile.toggle()
                 } label: {
                     ZStack {
                         Rectangle()
