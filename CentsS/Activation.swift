@@ -12,6 +12,7 @@ struct Activation: View {
     @Binding var user: Bool
     @Binding var name: String
     @Binding var email: String
+    @Binding var budgetleft: Double
     @Binding var monthly_budget: Double
     @Binding var monthly_expense: Double
     @Binding var monthly_savingsTarget: Double
@@ -37,6 +38,7 @@ struct Activation: View {
                     Activation2(user: $user,
                                 name: $name,
                                 email: $email,
+                                budgetleft: $budgetleft,
                                 monthly_budget: $monthly_budget,
                                 monthly_expense: $monthly_expense,
                                 monthly_savingsTarget: $monthly_savingsTarget)
@@ -44,7 +46,7 @@ struct Activation: View {
                 }
                 .padding()
                 .frame(width: 220, height: 40)
-                .background(.pink)
+                .background(.blue)
                 .foregroundStyle(.white)
                 .bold()
                 .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -58,6 +60,7 @@ struct Activation2: View {
     @Binding var user: Bool
     @Binding var name: String
     @Binding var email: String
+    @Binding var budgetleft: Double
     @Binding var monthly_budget: Double
     @Binding var monthly_expense: Double
     @Binding var monthly_savingsTarget: Double
@@ -98,21 +101,36 @@ struct Activation2: View {
                     .padding()
                 }
                 Spacer()
-                NavigationLink("Continue \(Image(systemName: "arrow.right"))") {
-                    Activation3(user: $user,
-                                name: $name,
-                                email: $email,
-                                monthly_budget: $monthly_budget,
-                                monthly_expense: $monthly_expense,
-                                monthly_savingsTarget: $monthly_savingsTarget)
-                        .navigationBarBackButtonHidden()
+                if !name.isEmpty && !email.isEmpty && email.contains("@") {
+                    NavigationLink("Continue \(Image(systemName: "arrow.right"))") {
+                        Activation3(user: $user,
+                                    name: $name,
+                                    email: $email,
+                                    budgetleft: $budgetleft,
+                                    monthly_budget: $monthly_budget,
+                                    monthly_expense: $monthly_expense,
+                                    monthly_savingsTarget: $monthly_savingsTarget)
+                            .navigationBarBackButtonHidden()
+                    }
+                    .padding()
+                    .frame(width: 220, height: 40)
+                    .background(.blue)
+                    .foregroundStyle(.white)
+                    .bold()
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                } else {
+                    NavigationLink("Continue \(Image(systemName: "arrow.right"))") {
+                        
+                    }
+                    .padding()
+                    .frame(width: 220, height: 40)
+                    .background(.blue)
+                    .foregroundStyle(.white)
+                    .bold()
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .disabled(true)
+                    .opacity(0.6)
                 }
-                .padding()
-                .frame(width: 220, height: 40)
-                .background(.pink)
-                .foregroundStyle(.white)
-                .bold()
-                .clipShape(RoundedRectangle(cornerRadius: 20))
             }
         }
     }
@@ -123,6 +141,7 @@ struct Activation3: View {
     @Binding var user: Bool
     @Binding var name: String
     @Binding var email: String
+    @Binding var budgetleft: Double
     @Binding var monthly_budget: Double
     @Binding var monthly_expense: Double
     @Binding var monthly_savingsTarget: Double
@@ -131,6 +150,7 @@ struct Activation3: View {
 
     func set() {
         monthly_budget = Double(setBudget)!
+        budgetleft = monthly_budget
 //        print(monthly_budget)
     }
     
@@ -194,7 +214,7 @@ struct Activation3: View {
                     }
                     .padding()
                     .frame(width: 220, height: 40)
-                    .background(.pink)
+                    .background(.blue)
                     .foregroundStyle(.white)
                     .bold()
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -204,7 +224,7 @@ struct Activation3: View {
                     }
                     .padding()
                     .frame(width: 220, height: 40)
-                    .background(.pink)
+                    .background(.blue)
                     .foregroundStyle(.white)
                     .bold()
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -292,7 +312,7 @@ struct Activation4: View {
                     }
                     .padding()
                     .frame(width: 220, height: 40)
-                    .background(.pink)
+                    .background(.blue)
                     .foregroundStyle(.white)
                     .bold()
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -302,7 +322,7 @@ struct Activation4: View {
                     }
                     .padding()
                     .frame(width: 220, height: 40)
-                    .background(.pink)
+                    .background(.blue)
                     .foregroundStyle(.white)
                     .bold()
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -386,7 +406,7 @@ struct Activation5: View {
                     }
                     .padding()
                     .frame(width: 220, height: 40)
-                    .background(.pink)
+                    .background(.blue)
                     .foregroundStyle(.white)
                     .bold()
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -396,7 +416,7 @@ struct Activation5: View {
                     }
                     .padding()
                     .frame(width: 220, height: 40)
-                    .background(.pink)
+                    .background(.blue)
                     .foregroundStyle(.white)
                     .bold()
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -431,7 +451,7 @@ struct Activation6: View {
                     }
                     .padding()
                     .frame(width: 220, height: 40)
-                    .background(.pink)
+                    .background(.blue)
                     .foregroundStyle(.white)
                     .bold()
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -444,6 +464,7 @@ struct Activation6: View {
     Activation(user: .constant(false),
                name: .constant("takudotoji"),
                email: .constant("takudotoji@mail.com"),
+               budgetleft: .constant(1000),
                monthly_budget: .constant(1000),
                monthly_expense: .constant(300),
                monthly_savingsTarget: .constant(250))
